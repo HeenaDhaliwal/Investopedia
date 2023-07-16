@@ -1,0 +1,30 @@
+.body-css{
+    font-family: 'Poppins', sans-serif;
+    /* background-color:whitesmoke; */
+}
+
+input[type=submit],input[type=button]{
+    background-color: rgb(82, 120, 151);
+    color:white;
+}
+input[type=submit]{
+    margin-right:10px;
+}
+.container{
+    background-color:white;
+}
+
+/* form */
+.form-control:focus {
+    color: black!important;
+    background-color: var(--bs-forms-control-bg);
+    border-color:grey!important;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(214, 214, 214, 25%)!important;
+}
+.form-select:focus{
+    background-color: var(--bs-forms-control-bg);
+    border-color:grey!important;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(214, 214, 214, 25%)!important;
+}

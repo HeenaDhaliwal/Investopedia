@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shark Dashboard</title>
+  <link rel="stylesheet" href="css/dash-investor.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="js/investor-setting.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a href="/"
+        class="mx-4 d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <img src="img/bar-chart.png" alt="" style="width:40px; height:32px">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+        <div class="d-flex mx-4">
+          <input class="btn me-2" type="button" value="Logout" id="btnLogout" id="btnshowsign"
+            style="background-color: white;">
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="py-5 text-center container pb-0">
+    <div class="row py-lg-5">
+      <div class="col-lg-9 col-md-8 mx-auto">
+        <h1 class="">Welcome to Investor Dashboard</h1>
+        <p class="lead text-body-secondary">An investor is an individual or a group of people who commit capital with
+          the expectation of generating a financial return. An investor may use a variety of strategies such as
+          investing in stocks, bonds, mutual funds, real estate, derivatives, or any other financial instrument in order
+          to meet their goals. Investors often look for long-term, consistent returns, but may also seek short-term
+          gains.</p>
+      </div>
+    </div>
+  </section>
+  <!-- cards -->
+  <main id="services">
+    <div class="album px-4 py-5 ">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-4">
+          <div class="col">
+            <div class="card shadow-sm m-3">
+              <img src="img/create investor.png" alt="" style="border-radius: 10px;">
+              <div class="card-body">
+                <p class="card-text">Create an Investor profile and fill all the details of your business profile so
+                  entrepreneur can reach you.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="investor.html" class="button btn my-2">Create an Investor Profile</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm m-3">
+              <img src="img/find pichers.jpg" alt="" style="border-radius: 10px;">
+              <div class="card-body">
+                <p class="card-text">Find Entrepreneurs according to your domain and location. so you should give
+                  investment to their Business.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="entrepreneur-find.html" class="button btn my-2">Find Entrepreneur</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm m-3">
+              <img src="img/set1.png" alt="">
+              <div class="card-body">
+                <p class="card-text">You can create a new password or update your password by just enter your old
+                  password and email id.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="/investor-setting.html" class="button btn my-2">Setting</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  </main>
+  <!-- footer -->
+  <div class="footer text-bg-light mt-4">
+    <div class="container">
+      <footer class="py-5">
+        <div class="row">
+          <div class="col-6 col-md-3 mb-3">
+            <h5 style="margin-left: 18px; color: rgb(82, 120, 151);" class="fw-bold">About</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" style="color: black; text-decoration: none;">Home</a>
+              <li class="nav-item mb-2"><a href="#services" style="color: black; text-decoration: none;">Service</a>
+              <li class="nav-item mb-2"><a href="#about" style="color: black; text-decoration: none;">About</a>
+              <li class="nav-item mb-2"><a href="#contact" style="color: black; text-decoration: none;">Contact</a>
+
+
+            </ul>
+          </div>
+
+          <div class="col-6 col-md-3 mb-3">
+            <h5 style="margin-left: 18px; color: rgb(82, 120, 151);" class="fw-bold">Contact us</h5>
+            <ul class="nav flex-column">
+
+              <li class="nav-item mb-2"><a href="#" style="color:black; text-decoration: none;"><i
+                    class="fa-solid fa-phone"></i> +91 7814683527</a></li>
+
+              <li class="nav-item mb-2"><a href="#" style="color: black; text-decoration: none;"><i
+                    class="fa-solid fa-location-dot"></i> Punjabi University Patiala</a></li>
+
+
+              <li class="nav-item mb-2"><a href="#" style="color: black; text-decoration: none;"><i
+                    class="fa-sharp fa-regular fa-envelope"></i> heenaheena21947@gmail.com</a>
+            </ul>
+          </div>
+
+          <div class="col-6 col-md-3 mb-3">
+            <h5 style="margin-left: 18px; color: rgb(82, 120, 151);" class="fw-bold">Social Media</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="https://instagram.com/dhuri_aali_sardarni?igshid=ZDdkNTZiNTM="
+                  target="_blank" style="color: black; text-decoration: none;"><i class="fa-brands fa-instagram"></i>
+                  instagram</a>
+              <li class="nav-item mb-2"><a href="https://www.linkedin.com/in/heenadaliwal" target="_blank"
+                  style="color: black; text-decoration: none;"><i class="fa-brands fa-linkedin"></i> linkedin</a></li>
+              <li class="nav-item mb-2"><a href="" target="_blank" style="color:black; text-decoration: none;"><i
+                    class="fa-brands fa-codepen"></i> codepen</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-3  mb-3">
+            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center bg-gradient fs-4"
+              style="border-radius:10px;">
+              <img src="img/logo.png" alt="" style="height:40px; width:40px;">
+            </div>
+            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center bg-gradient fs-4">
+              <h3>INVESTOPEDIA</h3>
+            </div>
+            <p>The Investing Platform</p>
+            <p>Investor investing in someone's Business & startups and entrepreneur taking the investments and grow
+              their
+              business.</p>
+          </div>
+        </div>
+
+        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 px-4 border-top">
+          <p class="fw-bold">&copy; 2023 Copyright Investopedia.com. All rights reserved.</p>
+          <ul class="list-unstyled d-flex" style="font-size: 25px;">
+            <li class="ms-3"></li>
+            <li class="ms-3"></li>
+            <li class="ms-3"></li>
+
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pitcher Profile</title>
+  <link rel="stylesheet" href="css/entrepreneur.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="js/entrepreneur.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+
+</head>
+
+<body onload="doOnLoad();" class="body-css">
+  <div class="container mt-4 mb-4 border" style="border-radius:10px; width:850px; padding: 20px;">
+    <form action="" class="row g-3" method="post" enctype= "multipart/form-data">
+      <h4 style="color:black;">ENTREPRENEUR PROFILE</h4>
+      <input type="hidden" id="hdn" name="hdn">
+      <!-- <input type="hidden" id="hdnState" name="hdnState">
+      <input type="hidden" id="hdnId" name="hdnId">
+      <input type="hidden" id="hdnCategory" name="hdnCategory"> -->
+
+      <div class="col-12">
+        <h5 class="modal-title" id="Label" style="color:rgb(82, 120, 151); font-weight:bold">Personal Details</h5>
+      </div>
+      <div class="col-md-5">
+        <label for="txtEmail" class="form-label">Email</label>
+        <input type="email" class="form-control" id="txtEmail" name="txtEmail">
+      </div>
+      <div class="col-md-7">
+        <div class="col-md-2">
+          <label for="inputEmail4" class="form-label" id="point" style="color: white;">.</label>
+        <input type="button" value="search" class="btn form-control btn-light" width="50" id="pitchSearch">
+        </div>
+        
+        <!-- <a href="" class="form-control mt-2" style="border:none;"> 
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </a> -->
+        <!-- <input type="button" class="btn"> <a href="" class="mt-4">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </a> -->
+      </div>
+      <div class="col-md-5">
+        <label for="txtName" class="form-label">Name</label>
+        <input type="text" class="form-control" id="txtName" name="txtName">
+      </div>
+      <div class="col-md-5">
+        <label for="txtMob" class="form-label">Contact no.</label>
+        <input type="tel" class="form-control" id="txtMob" name="txtMob">
+      </div>
+
+      <div class="col-12">
+        <label for="txtAdd" class="form-label">Address</label>
+        <input type="text" class="form-control" id="txtAdd" placeholder="1234 Main St" name="txtAdd">
+      </div>
+      <div class="col-md-5">
+        <label for="txtCity" class="form-label">City</label>
+        <input type="text" class="form-control" id="txtCity" name="txtCity">
+      </div>
+      <div class="col-md-4">
+        <label for="txtState" class="form-label">State</label>
+        <!--- India states -->
+        <select class="form-select" id="txtState"  name="txtState">
+          <option value="select" selected>Select</option>
+          <option value="AN">Andaman and Nicobar Islands</option>
+          <option value="AP">Andhra Pradesh</option>
+          <option value="AR">Arunachal Pradesh</option>
+          <option value="AS">Assam</option>
+          <option value="BR">Bihar</option>
+          <option value="CH">Chandigarh</option>
+          <option value="CT">Chhattisgarh</option>
+          <option value="DN">Dadra and Nagar Haveli</option>
+          <option value="DD">Daman and Diu</option>
+          <option value="DL">Delhi</option>
+          <option value="GA">Goa</option>
+          <option value="GJ">Gujarat</option>
+          <option value="HR">Haryana</option>
+          <option value="HP">Himachal Pradesh</option>
+          <option value="JK">Jammu and Kashmir</option>
+          <option value="JH">Jharkhand</option>
+          <option value="KA">Karnataka</option>
+          <option value="KL">Kerala</option>
+          <option value="LA">Ladakh</option>
+          <option value="LD">Lakshadweep</option>
+          <option value="MP">Madhya Pradesh</option>
+          <option value="MH">Maharashtra</option>
+          <option value="MN">Manipur</option>
+          <option value="ML">Meghalaya</option>
+          <option value="MZ">Mizoram</option>
+          <option value="NL">Nagaland</option>
+          <option value="OR">Odisha</option>
+          <option value="PY">Puducherry</option>
+          <option value="PB">Punjab</option>
+          <option value="RJ">Rajasthan</option>
+          <option value="SK">Sikkim</option>
+          <option value="TN">Tamil Nadu</option>
+          <option value="TG">Telangana</option>
+          <option value="TR">Tripura</option>
+          <option value="UP">Uttar Pradesh</option>
+          <option value="UT">Uttarakhand</option>
+          <option value="WB">West Bengal</option>
+        </select>
+      </div>
+      <div class="col-md-3 mb-4">
+        <label for="txtZip" class="form-label">Zip</label>
+        <input type="text" class="form-control" id="txtZip" name="txtZip">
+      </div>
+      <div class="col-12">
+        <h5 class="modal-title" id="Label" style="color:rgb(82, 120, 151); font-weight:bold">Professional Details</h5>
+      </div>
+      <div class="col-md-5">
+        <label for="txtProof" class="form-label">Id Proof</label>
+        <select class="form-select" id="txtId" name="txtId">
+          <option selected>select</option>
+          <option>Aadhaar Card</option>
+          <option>Pan Card</option>
+          <option>Passport</option>
+          <option>Voter Id Card</option>
+          <option>Driving License</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label for="upload" class="form-label">Upload</label>
+        <input type="file" id="file" class="form-control" name="txtPic" value="" onchange="previewImage(event); return fileValidation()">
+      </div>
+      <div class="preview col-md-3">
+        <label for="preview-img" class="form-label">Preview</label>
+        <img src="" alt="Upload Image" class="form-control" id="preview-img">
+      </div>
+      <div class="col-md-5">
+        <label for="txtCategory" class="form-label">Category</label>
+        <select class="form-select" id="txtCategory" name="txtCategory">
+          <option selected>select</option>
+          <option>Automotive </option>
+          <option>Business Support & Supplies</option>
+          <option>Clothing</option>
+          <option>Computers & Electronics</option>
+          <option>Construction & Contractors </option>
+          <option>Cosmetics</option>
+          <option>Education</option>
+          <option>Entertainment </option>
+          <option>Food</option>
+          <option>Health & Medicine </option>
+          <option>Home & Garden</option>
+          <option>Manufacturing, Wholesale,
+            Distributionl</option>
+          <option>Merchants (Retail)</option>
+          <option>Miscellaneous</option>
+          <option>Personal Care & Services </option>
+          <option>Real Estate</option>
+          <option>Travel & Transportation</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label for="txtCompany" class="form-label">Company Name/URL</label>
+        <input type="text" class="form-control" id="txtCompany" name="txtCompany">
+      </div>
+      <div class="col-md-3">
+        <label for="txtEstd" class="form-label">Estd.</label>
+        <input type="text" class="form-control" id="txtEstd" name="txtEstd">
+      </div>
+      <div class="col-12">
+        <label for="txtArea" class="form-label">Product details</label>
+        <textarea type="text" class="form-control" id="txtArea" name="txtArea"></textarea>
+      </div>
+      <div class="col-md-5">
+        <label for="txtRev" class="form-label">Revenue</label>
+        <input type="text" class="form-control" id="txtRev" name="txtRev">
+      </div>
+      <div class="col-md-5">
+        <label for="txtMargin" class="form-label">Gross Margin</label>
+        <input type="text" class="form-control" id="txtMargin" name="txtMargin">
+      </div>
+      <div class="col-12 mb-4">
+        <label for="txtArea" class="form-label">Other details</label>
+        <textarea type="text" class="form-control" id="txtOther" name="txtOther"></textarea>
+      </div>
+
+      <div class="col-12">
+        <input type="submit" class="btn btn-light" id="btnSubmit" value="Submit" formaction="/pitcherSubmit">
+        <input type="submit" class="btn btn-light" id="btnUpdate" value="update" formaction="/pitcherUpdate">
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>

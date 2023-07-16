@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shark Finder</title>
+  <link rel="stylesheet" href="css/investor-find.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="script/angular.min.js"></script>
+  <script src="js/entrepreneur-find.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+</head>
+<body ng-app="myModule" ng-controller="myController">
+
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a href="/" class="mx-4 d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <img src="img/bar-chart.png" alt="" style="width:40px; height:32px">      
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+        <div class="d-flex mx-4">
+          <a class="btn2 btn btn-light" href="/dash-investor.html">Back</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- container -->
+
+  <div class="container mt-4 mb-4" style="border-radius:10px; width:1000px; padding: 20px;">
+    <form class="mt-3 row g-3" action="" method="post" enctype="multipart/form-data">
+      <h4 style="color:black; text-align: center; font-weight: bold;">FIND ENTREPRENEUR</h4>
+      <div class="col-md-4">
+        <label for="txtCategory" class="form-label">Category</label>
+        <select class="form-select" id="txtcategory" name="txtcategory" ng-options="obj.category for obj in categoryAry"  ng-model="selcategoryObj" ng-change="docategory();" ng-init="fetchcategory();" >
+          <option value="">select</option>
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <label for="txtrevenue" class="form-label">revenue</label>
+        <input type="text" class="form-control" name="rev" id="rev" ng-model="selRev">
+
+        <!-- <select class="form-select" id="txtrevenue" name="txtrevenue" ng-options="obj.revenue for obj in revenueAry"  ng-model="selrevenueObj" ng-change="dorevenue();" ng-init="fetchrevenue();" >
+          <option value="">select</option>
+        </select> -->
+      </div>
+      <div class="col-md-4">
+        <label for="txtgross" class="form-label">Gross Margin</label>
+        <input type="text" class="form-control" ng-model="selGross" name="gross" id="gross"> 
+        <!-- <select class="form-select" id="txtgross" name="txtgross" ng-options="obj.gross for obj in grossAry"  ng-model="selgrossObj" ng-change="dogross();" ng-init="fetchgross();" >
+          <option value="">select</option>
+        </select> -->
+      </div>
+      <div class="col-12 mt-4">
+        <center>
+          <input type="button" class="btn btn-light" value="Find Now" ng-click="doShowAll();">
+          <!-- <a href="#" class="btn btn-light">Details</a> -->
+        </center>
+      </div>
+    </form>
+  </div>
+
+   <!-- cards -->
+   <div class="container" id="cards">
+    <div class="row">
+      <div class="col-md-3" ng-repeat="obj in jsonAry">
+        <div class="pt-4 pb-2 card border align-items-center">
+          <img src="uploads/{{obj.ppic}}" class="border rounded-circle card-img-top" alt="..."
+            style="height: 170px; width: 170px;">
+          <div class="card-body" style="text-align: center;">
+            <h5 class="card-title">{{obj.name}}</h5>
+            <h6 class="card-text">{{obj.company}}</h6>
+            <h6 class="card-text">{{obj.incomp}}</h6>
+            <a href="#" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#details" ng-click="doShow($index);" >Details</a>
+            <!-- <a href="#" class="btn btn-light">Details</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- module -->
+  <div class="fade modal p-4 py-md-5" tabindex="-1" role="dialog" id="details">
+    <div class="modal-lg modal-dialog mx-lg-auto" role="document">
+        <div class="modal-content rounded-3 shadow">
+            <div class="modal-body p-4">
+                <form class="row g-3" action="">
+                    <h3 style="color:rgb(82, 120, 151); text-align: center; font-weight: bold;">Other Details</h3>
+                    <div class="col-12">
+                        <h5 id="Label" style="color:rgb(82, 120, 151); font-weight:bold">Personal Details
+                        </h5>
+                    </div>
+                    <div class="col-md-8">
+                      <p class="mb-4 ng-binding">Email : {{obj.email}}</p>
+                      <p class="mb-4 ng-binding">Name : {{obj.name}} {{obj.lname}}</p>
+                      <label for="txtAdd" class="form-label">Address : {{obj.address}}</label>
+                  </div>              
+                    <div class="col-md-4 mt-0">
+                        <img src="uploads/{{obj.ppic}}" alt="Upload Image" class="img-fluid border" id="preview-img" style="width:170px; height:150px;">
+                    </div>
+                    <div class="col-md-8">
+                        
+                    </div>
+                    <div class="col-md-5">
+                        <label for="txtCity" class="form-label">City : {{obj.city}}</label>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="txtState" class="form-label">State : {{obj.state}}</label>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <label for="txtZip" class="form-label">Zip : {{obj.zip}}</label>
+                    </div>
+                    <div class="col-12 mt-0">
+                        <h5 class="modal-title" id="Label" style="color:rgb(82, 120, 151); font-weight:bold">Professional
+                            Details</h5>
+                    </div>
+                    <div class="col-md-5">
+                      <label for="txtPro" class="form-label">Category : {{obj.category}}</label>
+                  </div>
+                    <div class="col-md-7">
+                        <label for="txtCompany" class="form-label">Company Name/URL : {{obj.company}}</label>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <label for="txtEstd" class="form-label">Company Estd. : {{obj.estd}}</label>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="txtInv" class="form-label">Revenue : {{obj.revenue}}</label>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="txtComp" class="form-label">Gross: {{obj.gross}}</label>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="txtField" class="form-label">Product : {{obj.product}}</label>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="txtSel" class="form-label">Other Details : {{obj.other}}</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer flex-nowrap p-0">
+                <button type="button"
+                    class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end" style="color:rgb(82, 120, 151)"><strong>
+                      <a href="">
+                        <i class="fa-solid fa-phone" style="color:rgb(82, 120, 151)"></i>
+                      </a>
+                      {{obj.contact}}
+                    </strong></button>
+                <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0"
+                    data-bs-dismiss="modal" style="color:rgb(82, 120, 151)">Close</button>
+                    
+            </div>
+        </div>
+    </div>
+  </div>
+  
+
+</body>
+
+</html>

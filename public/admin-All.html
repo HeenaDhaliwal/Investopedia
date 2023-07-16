@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="script/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"></script>
+    <script>
+
+    var myModules=angular.module("myModule",[]);
+
+    myModules.controller("myController",function($scope,$http){
+
+            $scope.doBlock=function(mid)
+            { 
+                var resp=confirm("R U Sure??");
+                if(resp==false)
+                    return;
+                
+
+
+                var url="/angular-block-user?x="+mid;
+                $http.get(url).then(successFxKuch,failFxKuch);
+
+                function successFxKuch(responseKuch)
+                {
+                        alert(responseKuch.data);
+                        $scope.doShowAll();
+                    
+                }
+                function failFxKuch(responseKuch)
+                {
+                        alert( responseKuch.data);
+                }
+            }
+            $scope.doUnblock=function(mid)
+            {
+                var resp=confirm("R U Sure??");
+                if(resp==false)
+                    return;
+
+
+                var url="/angular-unblock-user?x="+mid;
+                $http.get(url).then(successFxKuch,failFxKuch);
+
+                function successFxKuch(responseKuch)
+                {
+                        alert(responseKuch.data);
+                        $scope.doShowAll();
+                    
+                }
+                function failFxKuch(responseKuch)
+                {
+                        alert( responseKuch.data);
+                }
+            }
+
+            $scope.jsonAry=[];
+            $scope.doShowAll=function()
+            {
+                var url="/angular-get-all-users";
+                $http.get(url).then(successFxKuch,failFxKuch);
+
+                function successFxKuch(responseKuch)
+                {
+                        //alert( JSON.stringify(responseKuch.data));
+                        $scope.jsonAry=responseKuch.data;
+                }
+                function failFxKuch(responseKuch)
+                {
+                        alert( responseKuch.data);
+                }
+            }
+    });
+
+    </script>
+</head>
+<body ng-app="myModule" ng-controller="myController" ng-init="doShowAll();">
+    <center>
+        <h2 class= "mt-4 mb-4">All Users</h2> 
+        <table width="1000" border="1" class="table table-striped">
+            <tr style=" color:white; background-color:rgb(82, 120, 151); text-align: center;">
+                <th>Sr. No</th>
+                <th>Emailid</th>
+                <th>Password</th>
+                <th>mobile</th>
+                <th>usertype</th>
+                <th>DOS</th>
+                <th>status</th>
+                <th>Block</th>
+                <th>Unblock</th>
+            </tr>
+            <tr ng-repeat="obj in jsonAry" style="text-align: center;">
+                <th>{{$index+1}}</th>
+                <td>
+                    {{obj.email}}
+                </td>
+                <td>
+                    {{obj.password}}
+                </td>
+                <td>
+                    {{obj.mobile}}
+                </td>
+                <td>
+                    {{obj.usertype}}
+                </td>
+                <td>
+                    {{obj.dos}}
+                </td>
+                <td>
+                    {{obj.status}}
+                </td>
+                <th>
+                    <a href="#" ng-click="doBlock(obj.email);" style="text-decoration: none;">Block</a>
+                </th>
+                <th>
+                    <a href="#" ng-click="doUnblock(obj.email);" style="text-decoration: none;">Unblock</a>
+                </th>
+            </tr>
+        </table>
+        
+    </center>
+</body>
+</html>

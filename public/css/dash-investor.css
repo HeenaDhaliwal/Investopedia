@@ -1,0 +1,71 @@
+.body-css {
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* button */
+.btn-close {
+    --bs-btn-close-focus-shadow: 0 0 0 0.25rem rgba(214, 214, 214, 0.25) !important;
+}
+
+.d-flex .btn {
+    border-radius: 10px;
+}
+
+.d-flex .btn2 {
+    margin-left: 15px;
+}
+
+.d-flex .btn:hover {
+    /* background-color: #f0ddbc; */
+    background-color: rgb(214, 214, 214);
+    /* background-color: #f0ddbc; */
+    color: black;
+}
+
+.btn-group .button {
+    background-color: rgb(82, 120, 151);
+    border: 0;
+    color: white;
+}
+
+.btn-group .button:hover {
+    background-color: rgb(214, 214, 214);
+    color: black;
+}
+
+/* navbar */
+.navbar {
+    background-color: rgb(82, 120, 151);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-weight: 500;
+}
+
+.container-fluid .navbar-brand {
+    color: #f0ddbc;
+}
+
+.me-auto {
+    margin-right: auto !important;
+    margin-left: auto;
+}
+
+.nav .nav-item {
+    display: flex;
+    /* justify-content: space-between; */
+    margin-left: 20px;
+    margin-right: 15px;
+
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .show>.nav-link {
+    color: var(--bs-navbar-active-color);
+}
+
+.nav .nav-item .nav-link:hover {
+    /* text-decoration: dashed; */
+    color: #f0ddbc;
+}

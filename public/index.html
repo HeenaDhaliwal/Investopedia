@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Index page</title>
+  <link rel="stylesheet" href="css/index.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="js/index.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+</head>
+
+<body class="body-css">
+  <!-- navbar -->
+  <nav class="sticky-top navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a href="/"
+        class="mx-4 d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <img src="img/bar-chart.png" alt="" style="width:40px; height:32px">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#about" id="reachus">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+
+        <div class="d-flex mx-4">
+          <input type="button" class="btn btn-light" id="btnShowLog"  data-bs-toggle="modal" data-bs-target="#loginModal" value="Login">
+          <input type="button" class="btn2 btn btn-light" id="btnShowSign"  data-bs-toggle="modal" data-bs-target="#signupModal"  value="Signup">
+         
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <!--login model -->
+  <div class="fade modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ExampleModalLabel" style="color:rgb(82, 120, 151) ; font-weight:bold">Login</h5>
+          <button type="button" class="close btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="txtEmailLog form-control" id="emailLog" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="pswd mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="txtPswdLog pswd form-control" id="pswdLog">
+              <a href="">
+                <i class="fa fa-eye" aria-hidden="true"></i>
+              </a>
+            </div>
+            <input type="button" class="btn btn-light" style="background-color: rgb(82, 120, 151); color:white"
+              value="Login" id="btnLogin">
+
+            <input type="button" type="button" class="close btn btn-light" style="    background-color: rgb(216 229 251);
+            color: #090909;" data-bs-dismiss="modal" aria-label="Close" value="close">
+            <p class="mt-2 mb-0" id="loginRes" style="margin-left: 10px;">*</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- signup model -->
+  <div class="modal" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ExampleModalLabel" style="color:rgb(82, 120, 151); font-weight:bold">Signup</h5>
+          <button type="button" class="close1 btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="signup-process" method="post">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" name="txtEmail" class="txtEmailSign form-control" id="txtEmail"
+                aria-describedby="emailHelp" value="heenaheena21947@gmail.com">
+            </div>
+            <div class="pswd mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" name="txtPswd" class="txtPswdSign pswd form-control" id="txtPswd" value="Gmail12@">
+              <a href="">
+                <i class="fa fa-eye" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputmobile1" class="form-label">Mobile</label>
+              <input type="tel" name="txtMob" class="txtMobSign form-control" id="txtMob" value="7814683527">
+            </div>
+            <div class="mb-4">
+              <label for="exampleInputmobile1" class="form-label">User type</label>
+              <select class="txtSel form-select" name="txtSel" aria-label="Default select example">
+                <option selected>select</option>
+                <option value="Investor" id="Investor">Investor</option>
+                <option value="Entrepreneur" id="Entrepreneur">Entrepreneur</option>
+              </select>
+            </div>
+            <input type="button" class="btn btn-light" style="background-color: rgb(82, 120, 151); color:white;"
+              value="Create a account" id="btnSignup">
+            <input type="button" class="close1 btn btn-light" style=" background-color: rgb(216 229 251);
+             color: #090909;" data-bs-dismiss="modal" aria-label="Close" value="close">
+            <p class="mt-2 mb-0" id="submitRes" style="margin-left: 10px;">*</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- container -->
+  <div class="container col-xxl-10 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-4">
+      <div class="col-lg-6">
+        <img src="img/home.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-2 fw-bold lh-1 mb-3">INVESTO<span style="color:rgb(82, 120, 151)">PEDIA</span>
+        </h1>
+        <p class="lead">A platform for investors and entrepreneurs could be a marketplace or an online banking platform that
+          connects borrowers and lenders. It should provide a secure platform for both investors and entrepreneurs to
+          interact and manage their investments and loans. </p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <input type="button" class="btn btn-light" id="getStart"  data-bs-toggle="modal" data-bs-target="#signupModal"  value="Get Started >"
+            style="background-color: rgb(82, 120, 151); color:white;">
+          <!-- <button type="button" class="btn btn-outline-secondary btn-lg px-4 me-md-2">Primary</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- service -->
+  <main id="services">
+    <div class="container">
+      <h3 class="name fw-bold">Services</h3>
+      <div class="album px-4 py-4 ">
+        <div class="container">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 flex-lg-row-reverse mt-4 mb-4">
+
+            <div class="col">
+              <div class="card shadow-sm m-3" >
+                <img src="img/service1.jpg" alt="" style="border-radius: 10px;">
+                <div class="card-body" style="font-size: 14px;">
+                  <h5 class="fw-bold" style="color:rgb(82, 120, 151)">Find Investor</h5>
+                  <!-- <p class="card-text"> investor is an individual or an organization that gives money to another person or
+                  organization hoping to see a future profit. </p> -->
+                  <p class="card-text">An investor is an individual or entity that invests money in an asset like
+                    stocks, bonds and more with the expectation of making a financial gain. </p>
+                  <!-- An investor may use a variety of strategies such as investing in stocks, bonds, mutual funds, real estate, derivatives, or any other financial instrument in order to meet their goals. Investors often look for long-term, consistent returns, but may also seek short-term gains. -->
+                  <div class="d-flex justify-content-between align-items-center">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card shadow-sm m-3">
+                <img src="img/service2.jpg" alt="" style="border-radius: 10px;">
+                <div class="card-body" style="font-size: 14px;">
+                  <h5 class="fw-bold" style="color:rgb(82, 120, 151)">Find Entrepreneurs </h5>
+                  <p class="card-text">Entrepreneurs  is a person or business that receives money from the investor with the
+                    agreement to pay it back within a specified period of time.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card shadow-sm m-3">
+                <img src="img/service3.jpg" alt="" style="border-radius: 10px;">
+                <div class="card-body" style="font-size: 14px;">
+                  <h5 class="fw-bold" style="color:rgb(82, 120, 151)">Platform</h5>
+                  <p class="card-text">This Platform provides an opportunity for Investors to invest in new and exciting
+                    startups and for Entrepreneurs to grow their businesses</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- about us -->
+  <div class="container px-4 py-5" id="about">
+    <h3 class="fw-bold mb-2">About us</h3>
+    <div class="row featurette mb-2 py-5 mt-2">
+      <div class="col-md-7" style="height: 500px;">
+        <h2 class="featurette-heading fw-bold lh-1">Grow your<span class="text" style="color: rgb(82, 120, 151);">
+            Business</span></h2>
+        <p class="lead">
+          Taking investments is one way to grow a business. It can be a good option if you need additional capital to
+          expand your operations or launch new products and services. Investing can also provide access to expertise,
+          connections, and other resources that can help you grow your business. However, it is important to understand
+          the risks associated with taking investments, such as giving up some control of the business or giving away
+          equity. It is also important to research potential investors thoroughly to ensure that they are a good fit for
+          your business and its goals.
+        </p>
+      </div>
+      <div class="col-md-5" style="height: 500px;">
+        <img src="img/section1.jpg" alt="" class="img-fluid">
+      </div>
+    </div>
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-bold lh-1">Profit of<span class="text" style="color: rgb(82, 120, 151);">
+            Investors</span></h2>
+        <p class="lead">Investing in the stock market provides investors with the opportunity to diversify their
+          portfolio and reduce their overall risk. By investing in a variety of companies and industries, investors can
+          spread out their risk and potentially increase their returns.
+          Investing in the stock market can provide investors with the potential for high returns. While there is always
+          the potential for loss, investors can maximize their return on investment by using sound investment
+          strategies.</p>
+          <!-- <a href="aboutmore.html" class="button btn my-2 btn-light" style="background-color: rgb(82, 120, 151); color:white">Read More</a> -->
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img src="img/section2.jpg" alt="" class="img-fluid">
+      </div>
+    </div>
+  </div>
+
+  <!-- meet the team -->
+
+  <div class="container px-5 py-4">
+    <h3 class="fw-bold mb-2">Meet the Developers</h3>
+    <div class="row mb-2 py-5 mt-4 team">
+      <div class="col-md-4 h100">
+        <div class="card" style="overflow: hidden;
+        border-radius: 5px;
+        box-shadow: rgba(50, 50, 93, 0.10) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        margin-bottom: 20px;">
+          <div class="img1">
+            <div style="background-color: rgb(82, 120, 151);height: 170px;">
+            </div>
+          </div>
+          <div class="img2">
+            <img src="img/heena student.png" alt="img1" class="text-bg-light" style="position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 1;
+            width: 230px;
+            height: 230px;
+            border-radius: 50%;
+            border: 7px solid white;
+            margin-top: -120px;">
+          </div>
+          <div class="main-text">
+            <p style="font-size: small;" class="text-center mb-0">Developer</p>
+            <h3 class="text-center">Heena</h3>
+            <p class="text-center" style="padding: 10px;">I am student of MCA student of Punjabi University Patiala</p>
+            <ul class="list-unstyled d-flex justify-content-center" style="font-size: 20px;">
+              <li><a href="https://instagram.com/dhuri_aali_sardarni?igshid=ZDdkNTZiNTM=" target="_blank"
+                  style="color: black;"><i class="fa-brands fa-instagram"></i></a></li>
+              <li class="ms-3"><a href="https://www.linkedin.com/in/heenadaliwal" target="_blank"
+                  style="color: black;"><i class="fa-brands fa-linkedin"></i></a></li>
+              <li class="ms-3"><a href="" target="_blank" style="color:black;"><i class="fa-brands fa-codepen"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 h-100">
+        <div class="card" style="overflow: hidden;
+        border-radius: 5px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        margin-bottom: 20px; ">
+          <div class="img1">
+            <div style="background-color: rgb(82, 120, 151);height: 170px;">
+            </div>
+          </div>
+          <div class="img2">
+            <img src="img/vishal sir.png" alt="img1"  class="text-bg-light" style="position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 1;
+            width: 230px;
+            height: 230px;
+            border-radius: 50%;
+            border: 7px solid white;
+            margin-top: -120px;">
+          </div>
+          <div class="main-text">
+            <p style="font-size: small;" class="text-center mb-0">under the Internal Guidence</p>
+            <h3 class="text-center">Dr. Vishal Goyal</h3>
+            <p class="text-center" style="padding: 10px;">Professor at Department of computer science at Punjabi University Patiala.</p>
+            <ul class="list-unstyled d-flex justify-content-center" style="font-size: 20px;">
+              <li><a href="https://instagram.com/dhuri_aali_sardarni?igshid=ZDdkNTZiNTM=" target="_blank"
+                  style="color: black;"><i class="fa-brands fa-instagram"></i></a></li>
+              <li class="ms-3"><a href="https://www.linkedin.com/in/heenadaliwal" target="_blank"
+                  style="color: black;"><i class="fa-brands fa-linkedin"></i></a></li>
+              <li class="ms-3"><a href="" target="_blank" style="color:black;"><i class="fa-brands fa-codepen"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-4 h-100">
+        <div class="card" style="overflow: hidden;
+        border-radius: 5px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        margin-bottom: 20px; ">
+          <div class="img1">
+            <div style="background-color: rgb(82, 120, 151);height: 170px;">
+            </div>
+          </div>
+          <div class="img2">
+            <img src="img/bathindasir.png" alt="img1" style="position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 1;
+            width: 230px;
+            height: 230px;
+            border-radius: 50%;
+            border: 7px solid white;
+            margin-top: -120px;">
+          </div>
+          <div class="main-text">
+            <p style="font-size: small;" class="text-center mb-0">under the External Guidence</p>
+            <h3 class="text-center">Prof. Rajesh Bansal</h3>
+            <p class="text-center" style="padding: 10px;">Training & Development Head at Sun Soft Technologies.</p>
+            <ul class="list-unstyled d-flex justify-content-center" style="font-size: 20px;">
+              <li><a href="https://instagram.com/dhuri_aali_sardarni?igshid=ZDdkNTZiNTM=" target="_blank"
+                  style="color: black;"><i class="fa-brands fa-instagram"></i></a></li>
+              <li class="ms-3"><a href="https://www.linkedin.com/in/heenadaliwal" target="_blank"
+                  style="color: black;"><i class="fa-brands fa-linkedin"></i></a></li>
+              <li class="ms-3"><a href="" target="_blank" style="color:black;"><i class="fa-brands fa-codepen"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- reach us -->
+  <div class="container px-4 py-4" id="contact">
+    <h3 class="fw-bold">Contact Us</h3>
+    <h5 class="fw-semibold" style="color:rgb(82, 120, 151)">Get in touch</h5>
+    <div class="row featurette py-5 mt-4">
+      <div class="col-md-8">
+        <iframe class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded-3"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3442.720477011101!2d76.44746381508405!3d30.358893010604184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39102804bba6d66b%3A0x8f2ada618e274451!2sPunjabi%20University%2C%20Patiala!5e0!3m2!1sen!2sin!4v1680584185360!5m2!1sen!2sin"
+          style="border:0;  width:800px ;height:500px" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="col-md-4">
+        <div class="col">
+          <div class="row row-cols-1 row-cols-sm-2 g-4">
+
+            <div class="col d-flex flex-column gap-1">
+              <div class="feature-icon-small d-inline-flex align-items-center bg-gradient fs-4 rounded-3"
+                style="height:60px; width:60px; background-color:white">
+                <img src="img/email.png" alt="" style="height:50px; width:50px">
+              </div>
+              <!-- <img src="img/email.png" alt="" style="height:50px; width:50px" > -->
+              <h6 class="fw-semibold mb-0">Email</h6>
+              <small>Our team is here to help</small>
+              <p class="text-body-secondary">heenaheena21947@gmail.com</p>
+            </div>
+
+            <div class="fade col d-flex flex-column gap-2">
+              <div
+                class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+                <svg class="bi" width="1em" height="1em">
+                  <use xlink:href="#collection" />
+                </svg>
+              </div>
+              <h4 class="fw-semibold mb-0">Featured title</h4>
+              <p class="text-body-secondary">Paragraph text beneath the heading to explain the heading.</p>
+            </div>
+
+            <div class="col d-flex flex-column gap-1">
+              <div class="feature-icon-small d-inline-flex align-items-center bg-gradient fs-4 rounded-3"
+                style="height:60px; width:60px; background-color:white;">
+                <img src="img/location.png" alt="" style="height:50px; width:50px">
+              </div>
+              <h6 class="fw-semibold mb-0">Location</h6>
+              <small>Punjabi University</small>
+              <p class="text-body-secondary">Patiala</p>
+            </div>
+
+            <div class="fade col d-flex flex-column gap-2">
+              <div
+                class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+                <svg class="bi" width="1em" height="1em">
+                  <use xlink:href="#table" />
+                </svg>
+              </div>
+              <h4 class="fw-semibold mb-0">Featured title</h4>
+              <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
+            </div>
+
+            <div class="col d-flex flex-column gap-1">
+              <div class="feature-icon-small d-inline-flex align-items-center bg-gradient fs-4 rounded-3"
+                style="height:60px; width:60px; background-color:white;">
+                <img src="img/phone-call.png" alt="" style="height:50px; width:50px">
+              </div>
+              <h6 class="fw-semibold mb-0">Phone</h6>
+              <small>Mon-Fri from 8am to 5pm.</small>
+              <p class="text-body-secondary">+91 7814683527</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- new  -->
+  <div class="footer text-bg-light mt-4">
+    <div class="container">
+      <footer class="py-5">
+        <div class="row">
+          <div class="col-6 col-md-3 mb-3">
+            <h5 style="margin-left: 18px; color: rgb(82, 120, 151);" class="fw-bold">About</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" style="color: black; text-decoration: none;">Home</a>
+              <li class="nav-item mb-2"><a href="#services" style="color: black; text-decoration: none;">Service</a>
+              <li class="nav-item mb-2"><a href="#about" style="color: black; text-decoration: none;">About</a>
+              <li class="nav-item mb-2"><a href="#contact" style="color: black; text-decoration: none;">Contact</a>
+
+             
+            </ul>
+          </div>
+
+          <div class="col-6 col-md-3 mb-3">
+            <h5 style="margin-left: 18px; color: rgb(82, 120, 151);" class="fw-bold">Contact us</h5>
+            <ul class="nav flex-column">
+              
+              <li class="nav-item mb-2"><a href="#" style="color:black; text-decoration: none;"><i class="fa-solid fa-phone"></i> +91 7814683527</a></li>
+              
+              <li class="nav-item mb-2"><a href="#" style="color: black; text-decoration: none;"><i class="fa-solid fa-location-dot"></i> Punjabi University Patiala</a></li>
+
+
+              <li class="nav-item mb-2"><a href="#"style="color: black; text-decoration: none;"><i class="fa-sharp fa-regular fa-envelope"></i> heenaheena21947@gmail.com</a>
+            </ul>
+          </div>
+
+          <div class="col-6 col-md-3 mb-3">
+            <h5 style="margin-left: 18px; color: rgb(82, 120, 151);" class="fw-bold">Social Media</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="https://instagram.com/dhuri_aali_sardarni?igshid=ZDdkNTZiNTM=" target="_blank"
+                style="color: black; text-decoration: none;"><i class="fa-brands fa-instagram"></i> instagram</a>
+              <li class="nav-item mb-2"><a href="https://www.linkedin.com/in/heenadaliwal" target="_blank" style="color: black; text-decoration: none;"><i
+                class="fa-brands fa-linkedin"></i> linkedin</a></li>
+              <li class="nav-item mb-2"><a href="" target="_blank" style="color:black; text-decoration: none;"><i class="fa-brands fa-codepen"></i> codepen</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-3  mb-3">
+            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center bg-gradient fs-4"
+              style="border-radius:10px;">
+              <img src="img/logo.png" alt="" style="height:40px; width:40px;">
+            </div>
+            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center bg-gradient fs-4">
+              <h3>INVESTOPEDIA</h3>
+            </div>
+            <p>The Investing Platform</p>
+            <p>Investor investing in someone's Business & startups and entrepreneur taking the investments and grow their
+              business.</p>
+          </div>
+        </div>
+
+        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 px-4 border-top">
+          <p class="fw-bold">&copy; 2023 Copyright Investopedia.com. All rights reserved.</p>
+          <ul class="list-unstyled d-flex" style="font-size: 25px;">
+            <li class="ms-3"></li>
+            <li class="ms-3"></li>
+            <li class="ms-3"></li>
+
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+
+</body>
+</html>
